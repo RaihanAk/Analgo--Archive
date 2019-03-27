@@ -43,6 +43,7 @@ int main()
 {
     int arr[10000];
     int n = sizeof(arr)/sizeof(arr[0]);
+    createArray(arr, n);
 
     cout<<"Descending Element \nSize: " <<n <<endl;
 
