@@ -4,8 +4,7 @@
 using namespace std;
 using namespace std::chrono;
 
-void merge(int arr[], int l, int m, int r)
-{
+void merge(int arr[], int l, int m, int r){
     int i, j, k;
     int n1 = m - l + 1;
     int n2 =  r - m;
@@ -43,33 +42,22 @@ void merge(int arr[], int l, int m, int r)
     }
 }
 
-/* l is for left index and r is right index of the
-   sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r)
-{
-    if (l < r)
-    {
-        // Same as (l+r)/2, but avoids overflow for
-        // large l and h
+void mergeSort(int arr[], int l, int r){
+    if (l < r){
         int m = l+(r-l)/2;
 
-        // Sort first and second halves
         mergeSort(arr, l, m);
         mergeSort(arr, m+1, r);
-
         merge(arr, l, m, r);
     }
 }
 
-/* UTILITY FUNCTIONS */
-/* Function to create array DESCENDING (Worst case) */
 void createArray(int A[], int size){
     for (int i = 0; i < size; i++){
         A[i] = size - i;
     }
 }
 
-/* Function to pcreateArray(arr, 5000);rint an array */
 void printArray(int A[], int size)
 {
     int i;
@@ -78,15 +66,12 @@ void printArray(int A[], int size)
     printf("\n");
 }
 
-/* Driver program to test above functions */
 int main()
 {
     int arr[100000];
     int arr_size = sizeof(arr)/sizeof(arr[0]);
     createArray(arr, arr_size);
 
-    /* printf("Given array is \n");
-    printArray(arr, arr_size); */
     cout<<"Descending Element \nSize: " <<arr_size <<endl;
 
     // Begin
@@ -97,9 +82,7 @@ int main()
     // End
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>( t2 - t1 ).count();
-
-    /* printf("\nSorted array is \n");
-    printArray(arr, arr_size); */
     cout<<endl <<duration <<" microseconds" <<endl;
+    
     return 0;
 }
